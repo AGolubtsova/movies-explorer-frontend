@@ -1,0 +1,136 @@
+.burger {
+  transition: .5s ease;
+}
+  
+.burger__background {
+  position: fixed;
+  z-index:1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .3);
+  width: 100%;
+  height: 100%;
+}
+  
+.burger__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #202020;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 67.7%;
+  height: 100%;
+}
+  
+.burger__close-btn {
+  padding: 0;
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  background-image: url('../../../images/closeIcon.svg');
+  transition: .5s ease;
+}
+
+.burger__close-btn:hover {
+  opacity: .7;
+} 
+  
+.burger__links {
+  margin: 159px 90px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  list-style-type:none;
+}
+  
+.burger-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26.63px;
+  color: #fff;
+  transition: .5s ease;
+}
+  
+.burger-link_active {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26.63px;
+  color: #fff;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #fff;
+  transition: .5s ease;
+}
+
+.burger-link:hover {
+  opacity: .7;
+}
+
+.burger__profile {
+  margin-bottom: 92px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  min-width: 100px;
+  gap: 13px;
+}
+
+.burger__account-btn {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.burger__account-btn:hover {
+  opacity: .7;
+}
+
+.burger__image-btn {
+  width: 30px;
+}
+  
+@media screen and (min-width: 769px) {
+  .burger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 724px) {
+  .burger-link {
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+
+  .burger-link_active {
+  font-size: 18px;
+  line-height: 21.78px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .burger__container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 378px) {
+  .burger__links {
+    margin: 144px 10px 0;
+  }
+}

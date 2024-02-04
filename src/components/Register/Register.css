@@ -1,0 +1,19 @@
+.register {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .register {
+    padding-top: 232px;
+    padding-bottom: 232px;
+  }
+}
+      
+@media (max-width: 420px) {
+  .register {
+    padding: 56px 30px 30px;
+  }
+}
