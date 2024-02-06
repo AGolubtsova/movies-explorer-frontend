@@ -1,5 +1,5 @@
 .card {
-  padding: 18px 0;
+  padding: 16px 0;
   background-color: #222;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
@@ -10,7 +10,7 @@
 }
 
 .card__container {
-  width: 100%;
+  width:100%;
   padding-left: 18px;
   padding-right: 18px;
   box-sizing: border-box;
@@ -18,18 +18,20 @@
   justify-content: space-between;
 }
 
-.card__description {
+.card__container h3 {
   margin: 0;
   margin-right: 14px;
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
+  letter-spacing: -0.01px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
   
 .card__duration {
+    padding-right: 2px;
     font-weight: 400;
     font-size: 13px;
     line-height: 18px;
@@ -38,7 +40,9 @@
 }
   
 .card__image {
-  max-width: 360px;
+  /*max-width: 364px;
+  min-height: 203px;*/
+  width: 100%;
   object-fit: cover;
   background-position: center;
   height: 200px;
@@ -58,22 +62,44 @@
   transition: .5s ease;
   cursor: pointer;
 }
-  
+
 .card__button:hover {
   opacity: .7;
-}
-  
-.card__button_saved {
+ }
+
+.card__button-saved {
   background-image: url('../../images/iconSaved.svg');
-  max-width: 100px;
-  object-fit: cover;
+  width: 100px;
+  height: 29px;
+  border:0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: .5s ease;
+  cursor: pointer
 }
 
-.card__button_delete {
-    background-image: url('../../images/deleteIcon.svg');
-    max-width: 100px;
-    object-fit: cover;
+.card__button-saved:hover {
+  opacity: .7;
+}
+
+.card__delete-button {
+  background-image: url('../../images/deleteIcon.svg');
+  width: 100px;
+  height: 29px;
+  border:0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: .5s ease;
+  cursor: pointer
   }
+
+ .card__delete-button:hover {
+  opacity: .7;
+}
   
 @media screen and (max-width: 768px) {
   .card__image {
@@ -92,7 +118,7 @@
     padding-right: 14px;
   }
   
-  .card__description {
+  .card__container h3 {
     font-size: 12px;
   }
     

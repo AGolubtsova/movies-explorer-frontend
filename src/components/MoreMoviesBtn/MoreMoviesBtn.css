@@ -1,10 +1,10 @@
 .more-movies {
-  padding: 70px 40px 80px;
+  padding: 63px 40px 59px;
   margin: 0;
 }
   
 .more-movies__button{
-  padding: 10px;
+  padding: 11px;
   width: 100%;
   font-weight: 500;
   font-size: 12px;
@@ -21,8 +21,18 @@
   opacity: .7;
 }
 
+@media screen and (max-width: 768px) {
+  .more-movies {
+    padding: 80px 0 80px;
+   }
+
+  .more-movies__button{
+    padding: 13px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .more-movies {
-    padding: 50px 0 80px;
+    padding: 75px 0 41px;
   }
 }

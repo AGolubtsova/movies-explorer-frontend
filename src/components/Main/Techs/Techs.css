@@ -1,15 +1,15 @@
 .techs {
-  padding: 100px 70px;
+  padding: 80px 70px;
   background-color: #272727;
 }
   
 .techs__title {
-  margin-bottom: 90px;
+  margin-bottom: 89px;
   display: block;
   font-weight: 400;
   font-size: 22px;
   line-height: 26.63px;
-  letter-spacing: -4%;
+  letter-spacing: -0.74px;
   padding-bottom: 23px;
   border-bottom: 1px solid #DADADA;
 }
@@ -19,18 +19,18 @@
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
-  letter-spacing: -4%;
+  letter-spacing: -0.88px;
   text-align: center;
 }
   
 .techs__description {
   display: block;
   margin: 0 auto 100px;
-  max-width: 460px;
+  max-width: 490px;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  letter-spacing: -4%;
+  letter-spacing: -0.74px;
   text-align: center;
 }
   
@@ -53,24 +53,33 @@
   font-size: 14px;
   line-height: 16.94px;
   text-align: center;
-  letter-spacing: -4%;
+  letter-spacing: -0.74px;
 }
   
 @media screen and (max-width: 768px) {
   .techs {
-    padding: 90px 50px;
+    padding: 75px 50px 88px;
   }
   
   .techs__title {
     margin-bottom: 80px;
+    letter-spacing: -1px;
   }
   
   .techs__subtitle {
+    padding: 0;
+    margin: 0;
     margin-bottom: 22px;
+    letter-spacing: -1.88px;
   }
   
   .techs__description {
     margin-bottom: 83px;
+    max-width: 460px;
+    padding-left: 2px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.04em;
   }
   
   .techs__list {
@@ -85,7 +94,7 @@
   
 @media screen and (max-width: 420px) {
   .techs {
-    padding: 70px 18px;
+    padding: 55px 18px;
     background-color: #202020;
   }
   
@@ -94,6 +103,7 @@
     padding-bottom: 28px;
     font-size: 18px;
     line-height: 21.78px;
+    letter-spacing: -0.04em;
     border-color: #000;
   }
   
@@ -101,12 +111,18 @@
     margin-bottom: 24px;
     font-size: 30px;
     line-height: 36.31px;
+    letter-spacing: -0.04em;
   }
   
   .techs__description {
     margin-bottom: 50px;
     font-size: 11px;
     line-height: 16px;
+  }
+
+  .techs__list {
+    max-width: 200px;
+    margin: 0 auto;
   }
   
   .techs__list li {

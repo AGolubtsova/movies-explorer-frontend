@@ -1,5 +1,5 @@
 .about-me {
-  padding: 110px 70px 100px;
+  padding: 110px 70px 87px;
 }
   
 .about-me__title {
@@ -7,7 +7,7 @@
   font-size: 22px;
   font-weight: 400;
   line-height: 26.63px;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
   padding-bottom: 23px;
   margin-bottom: 66px;
   border-bottom: 1px solid #DADADA;
@@ -31,7 +31,7 @@
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
 }
   
 .about-me__prof {
@@ -76,7 +76,11 @@
   
 @media screen and (max-width: 768px) {
   .about-me {
-    padding: 90px 50px;
+    padding: 73px 46px 73px 48px;
+  }
+
+  .about-me__content {
+    column-gap: 40px;
   }
   
   .about-me__name {
@@ -95,6 +99,7 @@
     margin-bottom: 87px;
     font-size: 12px;
     line-height: 18px;
+    max-width: 364px;
   }
   
   .about-me__photo {
@@ -105,7 +110,7 @@
   
 @media screen and (max-width: 470px) {
   .about-me {
-    padding: 70px 14px;
+    padding: 70px 14px 59px;
   }
   
   .about-me__title {

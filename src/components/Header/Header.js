@@ -7,9 +7,9 @@ import headerLogo from '../../images/header-logo.svg';
 function Header({ isLoggedIn }) {
   const location = useLocation();
   return (
-    <header className={`${location.pathname === '/' ? "header" : "header__movies"}`}>
-      <NavLink to="/" className="header__content">
-        <img className="header__logo" src={headerLogo} alt="Логотип" />
+    <header className={`${location.pathname === '/' ? "header" : "header-movies"}`}>
+      <NavLink to="/" className={`${location.pathname === '/' ? "header__content" : "header-movies__content"}`}>
+        <img className={`${location.pathname === '/' ? "header__logo" : "header-movies__logo"}`} src={headerLogo} alt="Логотип" />
       </NavLink>
       <Navigation isLoggedIn={isLoggedIn} />
     </header>

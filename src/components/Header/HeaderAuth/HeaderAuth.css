@@ -3,7 +3,6 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
-  /*min-width: 221px;*/
 }
 
 .header-auth__registration-button {
@@ -40,7 +39,6 @@
   text-decoration: none;
   text-align: center;
   transition: .5s ease;
-  /*overflow: hidden;*/
 }
 
 .header-auth__login-button:hover {

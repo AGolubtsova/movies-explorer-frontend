@@ -21,7 +21,7 @@ function Profile({ isEdited, isError, onClick, onSignOut }) {
           <button className="profile__button" onClick={onClick}>
             Редактировать
           </button>
-          <button className="profile__button_signout" onClick={onSignOut}>
+          <button className="profile__button-signout" onClick={onSignOut}>
             Выйти из аккаунта
           </button>
         </>

@@ -7,7 +7,7 @@
 }
   
 .footer__title {
-  margin-bottom: 20px;
+  margin-bottom: 19px;
   display: block;
   font-weight: 400;
   font-size: 13px;
@@ -31,6 +31,8 @@
   
 .footer__nav {
   display: flex;
+  padding: 0;
+  margin: 0;
   gap: 20px;
   font-weight: 400;
   font-size: 13px;
@@ -58,6 +60,12 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .footer {
+    padding-top: 56px;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .footer {
     padding: 79px 10px 20px;
@@ -73,6 +81,7 @@
   .footer__box {
     flex-direction: column;
     align-items: center;
+    flex-direction: column-reverse;
   }
   
   .footer__copyright {

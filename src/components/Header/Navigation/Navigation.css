@@ -1,6 +1,7 @@
 .nav__burger-btn {
   display: none;
   background: none;
+  box-sizing: border-box;
   background-image: url('../../../images/burgerMenu.svg');
   width: 44px;
   height: 44px;
@@ -12,6 +13,7 @@
 @media screen and (max-width: 768px) {
   .nav__burger-btn {
     display: block;
+    padding: 0;
   }
 }
   

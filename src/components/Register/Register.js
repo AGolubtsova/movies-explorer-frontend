@@ -26,7 +26,7 @@ export default function Register({ onRegister }) {
       <SignPage
         formName="register"
         onSubmit={handleSubmit}
-        title="Регистрация"
+        title="Добро пожаловать!"
         buttonText="Зарегистрироваться"
         aria-label="кнопка зарегистрироваться"
       >

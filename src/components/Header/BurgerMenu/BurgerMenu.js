@@ -11,17 +11,17 @@ function BurgerMenu({ onClose }) {
           <button className="burger__close-btn" type="button" onClick={() => onClose()} />
           <ul className="burger__links">
             <li>
-              <NavLink exact to='/' className="burger-link" activeClassName="burger-link_active">
+              <NavLink exact to='/' className={({isActive}) => `burger-link ${isActive ? "burger-link_active" : ""}`}>
                 Главная
               </NavLink>
             </li>
             <li>
-              <NavLink to='/movies' className="burger-link" activeClassName="burger-link_active">
+              <NavLink to='/movies' className={({isActive}) => `burger-link ${isActive ? "burger-link_active" : ""}`}>
                 Фильмы
               </NavLink>
             </li>
             <li>
-              <NavLink to='/saved-movies' className="burger-link" activeClassName="burger-link_active">
+              <NavLink to='/saved-movies' className={({isActive}) => `burger-link ${isActive ? "burger-link_active" : ""}`}>
                 Сохранённые фильмы
               </NavLink>
             </li>

@@ -1,5 +1,5 @@
 .portfolio {
-  padding: 0 70px 125px;
+  padding: 0 70px 95px;
 }
   
 .portfolio__title {
@@ -32,7 +32,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
   color: #FFF;
   text-decoration: none;
   transition: .5s ease;
@@ -48,7 +48,7 @@
   
 @media screen and (max-width: 768px) {
   .portfolio {
-    padding: 0 50px 90px;
+    padding: 2px 47px 85px;
   }
 
   .portfolio__title {
@@ -63,7 +63,7 @@
   
 @media screen and (max-width: 535px) {
   .portfolio {
-    padding: 0 14px 70px;
+    padding: 0 14px 40px;
   }
   
   .portfolio__title {

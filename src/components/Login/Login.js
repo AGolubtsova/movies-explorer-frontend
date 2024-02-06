@@ -49,11 +49,12 @@ export default function Login ({ onLogin }) {
           onChange={handlePassword} 
           value={password || ''}
           name="password"
-          placeholder=""
+          placeholder="••••••••••••••"
           minLength="3"
           maxLength="20"
           required 
         />
+        <div className="login__devider"></div>
       </SignPage>
     </div>
   )

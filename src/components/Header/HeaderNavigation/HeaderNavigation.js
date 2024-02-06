@@ -1,9 +1,11 @@
-import {NavLink} from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
 import React from "react";
 import "./HeaderNavigation.css";
 import profileIcon from '../../../images/profileicon.svg';
+import profileIconBlack from '../../../images/profileIconBlack.svg';
 
 function HeaderNavigation() {
+    const location = useLocation();
     return (
         <div className="header-navigation">
             <ul className="header-navigation__container">
@@ -28,7 +30,7 @@ function HeaderNavigation() {
             </ul>
             <div className="header-navigation__profile">
               <NavLink to='/profile' className='header-navigation__account-btn'>Аккаунт </NavLink>
-              <img className="header-navigation__image-btn" src={profileIcon} alt="Иконка аккаунта"/>
+              <img className="header-navigation__image-btn" src={location.pathname === '/' ? profileIcon : profileIconBlack} alt="Иконка аккаунта"/>
              </div>
             
         </div>
