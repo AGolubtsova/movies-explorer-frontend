@@ -1,0 +1,16 @@
+.saved-movies__devider {
+  min-height: 213px;
+  background-color: #202020;
+}
+
+@media (max-width: 768px) {
+  .saved-movies__devider  {
+    min-height: 175px;
+  }
+}
+
+@media (max-width: 420px) {
+    .saved-movies__devider  {
+      min-height: 130px;
+    }
+  }

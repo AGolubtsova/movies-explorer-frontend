@@ -1,0 +1,17 @@
+import SearchForm from "../SearchForm/SearchForm";
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import './SavedMovies.css';
+
+function SavedMovies() {
+  return (
+    <main className="saved-movies">
+      <SearchForm />
+      <FilterCheckbox />
+      <MoviesCardList />
+      <div className="saved-movies__devider"></div>
+    </main>
+  );
+}
+
+export default SavedMovies;
