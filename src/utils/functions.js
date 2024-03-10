@@ -2,7 +2,7 @@ export function chooseShortMovies(movies) {
     return movies.filter(movie => movie.duration <= 40);
 }
   
-  export function filterMovies(movies, userSearch, shortMoviesCheckbox) {
+export function filterMovies(movies, userSearch, shortMoviesCheckbox) {
     const moviesByUserQuery = movies.filter((movie) => {
       const movieRu = String(movie.nameRU).toLowerCase().trim();
       const movieEn = String(movie.nameEN).toLowerCase().trim();
@@ -15,4 +15,4 @@ export function chooseShortMovies(movies) {
     } else {
       return moviesByUserQuery;
     }
-  }
+}

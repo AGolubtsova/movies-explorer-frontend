@@ -5,14 +5,14 @@ import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import "./MoviesCardList.css";
 
 import {
-  DEFAULT_SHOWN_MOVIES_LARGE,
-  DEFAULT_SHOWN_MOVIES_MEDIUM,
-  DEFAULT_SHOWN_MOVIES_SMALL,
-  DEFAULT_MOVIES_TO_ADD_LARGE,
-  DEFAULT_MOVIES_TO_ADD_MEDIUM,
-  DEFAULT_MOVIES_TO_ADD_SMALL,
-  DEFAULT_WIDTH_LARGE,
-  DEFAULT_WIDTH_SMALL,
+  WIDTH_LARGE,
+  WIDTH_SMALL,
+  SHOWN_MOVIES_LARGE,
+  SHOWN_MOVIES_MEDIUM,
+  SHOWN_MOVIES_SMALL,
+  TO_ADD_LARGE,
+  TO_ADD_MEDIUM,
+  TO_ADD_SMALL,
 } from "../../utils/constants";
 
 function MoviesCardList ({moviesArray, saveMoviesArray, onSaveMovie, onDelete, verifyLike }) {
@@ -29,15 +29,15 @@ function MoviesCardList ({moviesArray, saveMoviesArray, onSaveMovie, onDelete, v
     };
 
     if (location.pathname === "/movies") {
-      if (width >= DEFAULT_WIDTH_LARGE) {
-        setShownMovies(DEFAULT_SHOWN_MOVIES_LARGE);
-        setMoviesToAdd(DEFAULT_MOVIES_TO_ADD_LARGE);
-      } else if (width >= DEFAULT_WIDTH_SMALL) {
-        setShownMovies(DEFAULT_SHOWN_MOVIES_MEDIUM);
-        setMoviesToAdd(DEFAULT_MOVIES_TO_ADD_MEDIUM);
+      if (width >= WIDTH_LARGE) {
+        setShownMovies(SHOWN_MOVIES_LARGE);
+        setMoviesToAdd(TO_ADD_LARGE);
+      } else if (width >= WIDTH_SMALL) {
+        setShownMovies(SHOWN_MOVIES_MEDIUM);
+        setMoviesToAdd(TO_ADD_MEDIUM);
       } else {
-        setShownMovies(DEFAULT_SHOWN_MOVIES_SMALL);
-        setMoviesToAdd(DEFAULT_MOVIES_TO_ADD_SMALL);
+        setShownMovies(SHOWN_MOVIES_SMALL);
+        setMoviesToAdd(TO_ADD_SMALL);
       }
     }
     window.addEventListener("resize", resizeWindow);
