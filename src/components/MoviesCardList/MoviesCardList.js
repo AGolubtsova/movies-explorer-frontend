@@ -3,10 +3,6 @@ import { useLocation } from "react-router-dom";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import MoreMoviesBtn from '../MoreMoviesBtn/MoreMoviesBtn';
 import "./MoviesCardList.css";
-import MovieImage from '../../images/movieImage.jpg';
-import { movieDuration, movieTitle, moviesQty, moreMovies} from '../../utils/constants';
-/*import MovieApi from '../../utils/MovieApi';*/
-import api from '../../utils/MovieApi';
 
 import {
   DEFAULT_SHOWN_MOVIES_LARGE,
@@ -19,9 +15,7 @@ import {
   DEFAULT_WIDTH_SMALL,
 } from "../../utils/constants";
 
-function MoviesCardList ({moviesArray, saveMoviesArray, isSaved, onSaveMovie, deleteMovie }) {
-  //const [showMovieList, setShowMovieList] = useState(movies);
-  //const [index, setIndex] = useState(moviesQty);
+function MoviesCardList ({moviesArray, saveMoviesArray, onSaveMovie, onDelete, verifyLike }) {
 
   const location = useLocation();
 
@@ -46,7 +40,6 @@ function MoviesCardList ({moviesArray, saveMoviesArray, isSaved, onSaveMovie, de
         setMoviesToAdd(DEFAULT_MOVIES_TO_ADD_SMALL);
       }
     }
-
     window.addEventListener("resize", resizeWindow);
     return () => {
       window.removeEventListener("resize", resizeWindow);
@@ -57,45 +50,44 @@ function MoviesCardList ({moviesArray, saveMoviesArray, isSaved, onSaveMovie, de
     setShownMovies((shownMovies) => shownMovies + moviesToAdd);
   }
 
-  /*function showMoreMovies() {
-    if (index < moviesQty) {
-      setIndex(index + moreMovies);
-    }
-  }*/
-
-
   return (
     <>
       {location.pathname === "/movies" && (
         <div className="cards">
           <ul className="cards__list">
-           {moviesArray.sort().map((movie) => (
-             <li className="cards__item-list" key={movie.id}>
+           {moviesArray.slice(0, shownMovies).map((movie) => (
+             <li className="cards__item-list">
                <MoviesCard
+                 key={movie.id}
                  movie={movie} 
-                 onChangeMovieSave={onSaveMovie}
-                 isSaved={isSaved}
+                 onSave={onSaveMovie}
+                 onDelete={onDelete}
+                 verifyLike={verifyLike}
               />
               </li>
             ))}
           </ul>
-          {shownMovies < moviesArray.length && <MoreMoviesBtn showMore={showMoreMovies} />}
+          {shownMovies < moviesArray.length && <MoreMoviesBtn showMoreMovies={showMoreMovies} />}
         </div>
       )}
 
-      {location.pathname === "/saved-movies" &&
-        (<ul className="movies-card-list">
-            {saveMoviesArray.map((saveMovie) => {
+      {location.pathname === "/saved-movies" &&(
+        <div className="cards">
+          <ul className="cards__list">
+            {saveMoviesArray.map((movie) => {
               return (
-                <li className="movies-card-list__item" key={saveMovie._id}>
+                <li className="cards__item-list">
                   <MoviesCard
-                    movie={saveMovie}
-                    onChangeMovieSave={deleteMovie}
+                    key={movie.movieId}
+                    movie={movie}
+                    onDelete={onDelete}
+                    verifyLike={verifyLike}
                   />
                 </li>
               );
             })}
           </ul>
+        </div>
         )
       }
 

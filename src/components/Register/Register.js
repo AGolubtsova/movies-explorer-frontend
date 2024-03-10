@@ -1,25 +1,16 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import SignPage from '../SignPage/SignPage';
 import './Register.css';
+import useValidationForm from '../../hooks/useValidationForm';
 
 export default function Register({ onRegister }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
-  function handleName (e) { setName(e.target.value) };
-  function handleEmail (e) { setEmail(e.target.value) };
-  function handlePassword (e) { setPassword(e.target.value) };
 
-  function handleSubmit (e) {
-    e.preventDefault();
-    onRegister(password, email);
-  }
+  const { values, handleChange, errors, isFormValid } = useValidationForm();
 
-  useEffect(() => {
-    setPassword('');
-    setEmail('');
-  }, []);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onRegister(values);
+  };
 
   return (
     <div className = "register">
@@ -28,46 +19,49 @@ export default function Register({ onRegister }) {
         onSubmit={handleSubmit}
         title="Добро пожаловать!"
         buttonText="Зарегистрироваться"
+        isFormValid={isFormValid}
         aria-label="кнопка зарегистрироваться"
       >
-        <span className="sign-page__label">Имя</span>
+        <p className="sign-page__label">Имя</p>
         <input
           className="sign-page__input"
-          id="email-input" 
+          id="name-input" 
           type="text" 
-          onChange={handleName} 
-          value={name || ''}
+          onChange={handleChange} 
+          value={values.name || ''}
           name="name" 
           placeholder="Виталий" 
-          minLength="3" 
+          minLength="2" 
           maxLength="20" 
           required
         />
-        <span className="sign-page__label">E-mail</span>
+        <span className="sign-page__input-error">{errors.name}</span>
+        <p className="sign-page__label">E-mail</p>
         <input
           className="sign-page__input"
           id="email-input" 
           type="email" 
-          onChange={handleEmail} 
-          value={email || ''}
+          onChange={handleChange} 
+          value={values.email || ''}
           name="email" 
           placeholder="pochta@yandex.ru|" 
-          minLength="3" 
+          minLength="2" 
           maxLength="20" 
           required/>
-        <span className="sign-page__label">Пароль</span>
+        <span className="sign-page__input-error">{errors.email}</span>
+        <p className="sign-page__label">Пароль</p>
         <input
           className="sign-page__input"
           id="passwd-input" 
           type="password" 
-          onChange={handlePassword} 
-          value={password || ''}
+          onChange={handleChange} 
+          value={values.password || ''}
           name="password"
           placeholder="••••••••••••••"
-          minLength="3"
+          minLength="2"
           maxLength="20"
           required/>
-        <span className="sign-page__input-error">Что-то пошло не так...</span>
+         <span className="sign-page__input-error">{errors.password}</span>
       </SignPage>
     </div>
   )

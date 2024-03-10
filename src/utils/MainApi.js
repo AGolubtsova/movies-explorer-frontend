@@ -1,10 +1,10 @@
-import { MOVIE_API_URL } from './constants';
+import { BASE_URL } from './constants';
 
 class MainApi {
-    constructor(url, headers) {
-      this._url = url;
-      this._headers = headers
-      };
+    constructor(options) {
+      this._url = options.url;
+      this._headers = options.headers;
+    };
 
     // Метод обработки ответа сервера
     _sendRequest(url, options) {
@@ -14,8 +14,8 @@ class MainApi {
               return res.json()
             }
           throw new Error(`Ошибка: ${res.status}`)
-          })
-      }
+        })
+    }
 
     // Метод инициализации данных с сервера
     getContent() {
@@ -26,21 +26,21 @@ class MainApi {
     }
 
     // Метод отправки данных пользователя на сервер
-    sendUserInfo(userData) {
+    sendUserInfo({name, email}) {
         return this._sendRequest(`${this._url}/users/me`, {
             headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
             method: 'PATCH',
             body: JSON.stringify({ 
-              name: userData.name, 
-              about: userData.email, 
+              name: name, 
+              email: email, 
             })
         });
     }
     
     // Метод добавления сохраненных фильмов
     saveMovie(data) {
-        return this._sendRequest(`${this._url}movies`, {
-         method: "POST",
+        return this._sendRequest(`${this._url}/movies`, {
+          method: "POST",
           headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
           body: JSON.stringify({
             movieId: data.id,
@@ -52,15 +52,15 @@ class MainApi {
             duration: data.duration,
             description: data.description,
             trailerLink: data.trailerLink,
-            image:  `https://api.nomoreparties.co${data.url}`,
-            thumbnail:  `https://api.nomoreparties.co${data.url}`,
+            image:  `https://api.nomoreparties.co${data.image.url}`,
+            thumbnail:  `https://api.nomoreparties.co${data.image.url}`,
           })
         })
     }
     
     // Метод получения сохраненных фильмов
-    getSaveMovies() {
-      return this._sendRequest(`${this._url}movies`, {
+    getSavedMovies() {
+      return this._sendRequest(`${this._url}/movies`, {
         method: "GET",
         headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
       })
@@ -68,7 +68,7 @@ class MainApi {
 
     // Метод удаления фильмов
     deleteMovie(movieId) {
-      return this._sendRequest(`${this._url}movies/${movieId}`, {
+      return this._sendRequest(`${this._url}/movies/${movieId}`, {
         method: "DELETE",
         headers: {authorization: 'Bearer ' + localStorage.getItem("jwt"), ...this._headers},
       })
@@ -77,10 +77,10 @@ class MainApi {
 
 // Объявление экземпляра API
 const optionsApi = {
-    url: MOVIE_API_URL,
+    url: BASE_URL,
     headers: {
           'Content-Type': "application/json"
     }
   }
-  const apiMain = new MainApi(optionsApi);
-  export default apiMain;
+const apiMain = new MainApi(optionsApi);
+export default apiMain;

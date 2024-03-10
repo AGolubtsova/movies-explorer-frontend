@@ -71,6 +71,8 @@
   border: none;
   transition: .5 ease;
   cursor: pointer;
+  margin-top: 190px;
+  margin-left: 160px;
 }
 
 .profile__button:hover {
@@ -89,6 +91,7 @@
   color: #EE3465;
   transition: .5 ease;
   cursor: pointer;
+  margin-left: 146px;
 }
 
 .profile__button-signout:hover {

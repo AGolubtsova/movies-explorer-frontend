@@ -36,7 +36,7 @@
 .sign-page__label {
   margin: 0;
   padding: 0;
-  margin-bottom: 10px;
+  margin-top: 10px;
   font-weight: 400;
   font-size: 10px;
   line-height: 12.1px;
@@ -103,6 +103,12 @@
   transition: ease .4s;
   cursor: pointer;
 }
+
+.sign-page__submit-btn_disabled {
+  background: #F8F8F8;
+  color: #C2C2C2;
+  cursor: auto;
+}
   
 .sign-page__links {
   margin-bottom: 70px;
@@ -133,9 +139,25 @@
   transition: .5s ease;
   cursor: pointer;
 }
+
+/*.sign-page__input-error {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: 10px;
+  line-height: normal;
+  color: #EE3465;
+  font-size: 10px;
+  font-weight: 400;
+  
+}*/
   
 .sign-page__submit-btn:hover, .sign-page__link:hover {
   opacity: 0.7;
+}
+
+.sign-page__submit-btn_disabled:hover {
+  opacity: 1;
 }
 
 @media (max-width: 769px) {

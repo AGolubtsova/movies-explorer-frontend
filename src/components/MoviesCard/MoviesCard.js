@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import "./MoviesCard.css";
 
 
-function MoviesCard({ movie, onChangeMovieSave, isSaved }) {
+function MoviesCard({ movie, onSave, onDelete, verifyLike}) {
   const location = useLocation();
- // const [isSaved, setIsSaved] = useState(true);
 
-  /*function toggleSave() {
-    setIsSaved(!isSaved);
-  }*/
+  const handleSaveCard = () => {
+    onSave(movie);
+  };
 
-  function toggleSave() {
-    onChangeMovieSave(location.pathname === "/saved-movies" ? movie._id : movie);
-  }
-
-
+  const handleDeleteCard = () => {
+    onDelete(location.pathname === '/movies' ? movie.id : movie.movieId);
+  };
 
   return (
     <div className="card">
@@ -27,12 +24,12 @@ function MoviesCard({ movie, onChangeMovieSave, isSaved }) {
         <img className="card__image" src={location.pathname === '/movies' ? `https://api.nomoreparties.co${movie.image.url}` : movie.image} alt={movie.nameRU}/>
       </a>
       {location.pathname === "/movies" ? (
-        isSaved ?(
-          <button type="button" className="card__button-saved" onClick={toggleSave}></button>
+        verifyLike(location.pathname === '/movies' ? movie.id : movie.movieId) ? (
+          <button type="button" className="card__button-saved" onClick={handleDeleteCard}></button>
         ) : (
-          <button className="card__button" onClick={toggleSave}>Сохранить</button>
+          <button className="card__button" onClick={handleSaveCard}>Сохранить</button>
         )
-      ) : (<button type="button" className="card__delete-button"></button>)}
+      ) : (<button type="button" className="card__delete-button" onClick={handleDeleteCard}></button>)}
     </div>
   );
 };

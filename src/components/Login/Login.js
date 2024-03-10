@@ -1,23 +1,17 @@
-import React, { useState, useEffect }  from 'react';
+import React  from 'react';
 import SignPage from '../SignPage/SignPage';
 import './Login.css';
+import useValidationForm from '../../hooks/useValidationForm';
 
 export default function Login ({ onLogin }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
-  function handleEmail (e) { setEmail(e.target.value) };
-  function handlePassword (e) { setPassword(e.target.value) };
-
-  function handleSubmit (e) {
-    e.preventDefault();
-    onLogin(password, email);
-  }
-
-  useEffect(() => {
-    setPassword('');
-    setEmail('');
- }, []);
+  const { values, handleChange, errors, isFormValid } = useValidationForm();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!values.email || !values.password) {
+      return;
+    }
+    onLogin(values);
+  };
 
   return (
     <div className = "login">
@@ -26,34 +20,37 @@ export default function Login ({ onLogin }) {
         onSubmit={handleSubmit}
         title="Рады видеть!"
         buttonText='Войти'
+        isFormValid={isFormValid}
         aria-label="кнопка войти"
       >
-        <span className="sign-page__label">E-mail</span>
+        <p className="sign-page__label">E-mail</p>
         <input
           className="sign-page__input"
           id="email-input" 
           type="email" 
-          onChange={handleEmail} 
-          value={email || ''}
+          onChange={handleChange} 
+          value={values.email || ''}
           name="email" 
           placeholder="pochta@yandex.ru" 
-          minLength="3" 
+          minLength="2" 
           maxLength="20" 
           required
         />
-        <span className="sign-page__label">Пароль</span>
+        <span className="sign-page__input-error">{errors.name}</span>
+        <p className="sign-page__label">Пароль</p>
         <input
           className="sign-page__input"
           id="passwd-input" 
           type="password" 
-          onChange={handlePassword} 
-          value={password || ''}
+          onChange={handleChange} 
+          value={values.password || ''}
           name="password"
           placeholder="••••••••••••••"
-          minLength="3"
+          minLength="2"
           maxLength="20"
           required 
         />
+        <span className="sign-page__input-error">{errors.password}</span>
         <div className="login__devider"></div>
       </SignPage>
     </div>
