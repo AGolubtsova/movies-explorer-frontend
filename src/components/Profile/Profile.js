@@ -58,7 +58,6 @@ function Profile({ onUpdateUser, onSignOut }) {
             setDisabled(true);
             setIsEdited(true);
             resetForm();
-            alert('Введите измененные данные')
             return i=i++
           }
         } 
@@ -82,10 +81,7 @@ function Profile({ onUpdateUser, onSignOut }) {
             setDisabled(true);
             setIsEdited(true);
             resetForm();
-            if (i===0) {
-            alert('Введите измененные данные')
-            }
-            }
+          }
         } 
         setIsButtonClick(false);
         setDisabled(true);

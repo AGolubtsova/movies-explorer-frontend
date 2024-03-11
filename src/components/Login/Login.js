@@ -4,7 +4,7 @@ import './Login.css';
 import useValidationForm from '../../hooks/useValidationForm';
 
 export default function Login ({ onLogin }) {
-  const { values, handleChange, errors, isFormValid } = useValidationForm();
+  const { values, errors, handleChange, isFormValid, resetForm, isChange } = useValidationForm();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!values.email || !values.password) {
@@ -36,7 +36,7 @@ export default function Login ({ onLogin }) {
           maxLength="20" 
           required
         />
-        <span className="sign-page__input-error">{errors.name}</span>
+        <span className="sign-page__input-error">{errors.email}</span>
         <p className="sign-page__label">Пароль</p>
         <input
           className="sign-page__input"

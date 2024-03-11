@@ -3,19 +3,18 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import { useMatch } from 'react-router-dom';
 
 const useValidationForm = () => {
+  const currentUser = useContext(CurrentUserContext);
+  const routeProfile = useMatch("/profile");
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [isChange, setChange] = useState(false);
   const regexName = new RegExp(/^[a-zA-Zа-яА-Я\s\-]*$/)
   const regexEmail = new RegExp(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.([a-zA-Z-.]{2,})+$/)
-  const currentUser = useContext(CurrentUserContext);
-  const routeProfile = useMatch("/profile");
 
   const handleChange = (event) => {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
+    const name = event.target.name;
+    const value = event.target.value;
 
     setValues({
       ...values,
@@ -28,6 +27,7 @@ const useValidationForm = () => {
     });
 
     setIsFormValid(errors.name === '' ? true : false);
+
     if (name === "name") {
       if (value !== currentUser.name) {
         if (!value) {
@@ -76,7 +76,7 @@ const useValidationForm = () => {
       } 
     }
 
-    setIsFormValid(target.closest("form").checkValidity());
+    setIsFormValid(event.target.closest("form").checkValidity());
   };
 
   const resetForm = useCallback(
