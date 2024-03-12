@@ -12,7 +12,7 @@ export default function SignPage ({formName, onSubmit, title, children, buttonTe
         <div className="sign-page__inputs">
           {children}
         </div>
-        <button className={isFormValid ? "sign-page__submit-btn" : "sign-page__submit-btn sign-page__submit-btn_disabled"} type="submit" disabled={isFormValid ? false : true}>{buttonText}</button>
+        <button className={isFormValid ? "sign-page__submit-btn" : "sign-page__submit-btn sign-page__submit-btn_disabled"} type="submit" disabled={isFormValid ? false : true} >{buttonText}</button>
       </form>
       <div className="sign-page__links">
       {formName === "register" && 

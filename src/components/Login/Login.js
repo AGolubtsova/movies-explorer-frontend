@@ -1,9 +1,13 @@
-import React  from 'react';
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 import SignPage from '../SignPage/SignPage';
 import './Login.css';
 import useValidationForm from '../../hooks/useValidationForm';
 
-export default function Login ({ onLogin }) {
+export default function Login ({ onLogin, isLoggedIn }) {
+  const navigate = useNavigate();
+  isLoggedIn && navigate("/", { replace: true });
+  
   const { values, errors, handleChange, isFormValid, resetForm, isChange } = useValidationForm();
   const handleSubmit = (event) => {
     event.preventDefault();

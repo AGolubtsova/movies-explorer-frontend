@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useMatch, useLocation } from 'react-router-dom';
-
 import './App.css';
-
 import { CurrentUserContext }from '../../contexts/CurrentUserContext';
 
 import Main from '../Main/Main';
@@ -194,7 +192,6 @@ function App() {
   }
 
   const handleDeleteMovie = (movieId) => {
-    setIsLoading(true);
     const handledMovie = savedMovies.find(item => {
       return item.movieId === movieId
     });
@@ -208,9 +205,6 @@ function App() {
       setPopupMessage(error);
       setIsPopupOpen(true);
     })
-    .finally(() => {
-      setIsLoading(false);
-    });
   };
   
   //Функция проверки лайка - возвращает статус сохраненности карточки
@@ -274,7 +268,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className = "аpp">
-         <Header isLoggedIn={isLoggedIn}/>
+         <Header isLoggedIn={isLoggedIn} />
          <Routes>
           <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<Main/>}/>
@@ -307,13 +301,13 @@ function App() {
           }/>
           <Route path="/profile" element={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Profile onUpdateUser={handleUpdateUser} onSignOut={handleSignOut}/></ProtectedRoute>
+              <Profile onUpdateUser={handleUpdateUser} onSignOut={handleSignOut} /></ProtectedRoute>
           }/>
           <Route path="/signin" element={
-            <Login isLoggedIn={!isLoggedIn} onLogin={handleAuthorization}/>
+            <Login onLogin={handleAuthorization} isLoggedIn={isLoggedIn} />
           }/>
           <Route path="/signup" element={
-            <Register isLoggedIn={!isLoggedIn} onRegister={handleRegistration}/>
+            <Register onRegister={handleRegistration} isLoggedIn={isLoggedIn}/>
           }/>
         </Routes>
         {(routeMain || routeMovies ||routeSavedMovies) ? <Footer /> : <></>}

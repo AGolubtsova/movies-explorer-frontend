@@ -20,8 +20,8 @@ const SearchForm = ({onSearchMovies, shortMovieCheck, onChooseShortMovies}) => {
   }
 
   useEffect(() => {
-    if (location.pathname === '/movies' && localStorage.getItem('movieSearch')) {
-      const searchValue = localStorage.getItem('movieSearch');
+    if (location.pathname === '/movies' && localStorage.getItem('movieToSearch')) {
+      const searchValue = localStorage.getItem('movieToSearch');
       values.request = searchValue;
     }
   }, [location]);

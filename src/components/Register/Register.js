@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import SignPage from '../SignPage/SignPage';
 import './Register.css';
 import useValidationForm from '../../hooks/useValidationForm';
 
-export default function Register({ onRegister }) {
+export default function Register({ onRegister, isLoggedIn }) {
+  const navigate = useNavigate();
+  isLoggedIn && navigate("/", { replace: true });
 
   const { values, handleChange, errors, isFormValid } = useValidationForm();
 

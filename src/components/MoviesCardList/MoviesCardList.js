@@ -22,7 +22,7 @@ function MoviesCardList ({moviesArray, saveMoviesArray, onSaveMovie, onDelete, v
   const [shownMovies, setShownMovies] = useState(0);
   const [moviesToAdd, setMoviesToAdd] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
-
+  
   useEffect(() => {
     const resizeWindow = () => {
       setWidth(window.innerWidth);
@@ -67,6 +67,7 @@ function MoviesCardList ({moviesArray, saveMoviesArray, onSaveMovie, onDelete, v
               </li>
             ))}
           </ul>
+          {moviesArray.length === 0 && (<h1 className="cards__error">Ничего не найдено</h1>)}
           {shownMovies < moviesArray.length && <MoreMoviesBtn showMoreMovies={showMoreMovies} />}
         </div>
       )}
@@ -87,10 +88,10 @@ function MoviesCardList ({moviesArray, saveMoviesArray, onSaveMovie, onDelete, v
               );
             })}
           </ul>
+         {saveMoviesArray.length === 0 && (<h1 className="cards__error">Ничего не найдено</h1>)}
         </div>
         )
       }
-
     </>
   );
 };

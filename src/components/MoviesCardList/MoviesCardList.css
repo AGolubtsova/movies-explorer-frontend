@@ -14,6 +14,14 @@
   list-style: none;
 }
 
+.cards__error {
+  color: #FFF;
+  font-size: 20px;
+  text-align: center;
+  padding: 0;
+  margin: 0 0 50px 0;
+}
+
 @media screen and (max-width: 1130px) {
   .cards__list {
     max-width: 900px;
