@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import "./Profile.css";
 import useValidationForm from '../../hooks/useValidationForm';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 function Profile({ onUpdateUser, onSignOut }) {
   const [isButtonClick, setIsButtonClick] = useState(false);
@@ -12,14 +11,6 @@ function Profile({ onUpdateUser, onSignOut }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const { values, errors, handleChange, isFormValid, resetForm, isChange } = useValidationForm();
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [popupMessage, setPopupMessage] = useState('');
-
-  //Попап
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-    setPopupMessage('');
-  };
 
   useEffect(() => {
     setName(currentUser.data.name);
@@ -67,8 +58,6 @@ function Profile({ onUpdateUser, onSignOut }) {
             setDisabled(true);
             setIsEdited(true);
             resetForm();
-            setPopupMessage('Введите измененные данные');
-            setIsPopupOpen(true);
             return i=i++
           }
         } 
@@ -92,10 +81,6 @@ function Profile({ onUpdateUser, onSignOut }) {
             setDisabled(true);
             setIsEdited(true);
             resetForm();
-            if (i===0) {
-              setPopupMessage('Введите измененные данные');
-              setIsPopupOpen(true);
-            }
           }
         } 
         setIsButtonClick(false);
@@ -107,7 +92,6 @@ function Profile({ onUpdateUser, onSignOut }) {
   }
 
   return (
-  <>
     <section className="profile">
       <h1 className="profile__title">{`Привет, ${name}!`}</h1>
       <form className="profile__form" onSubmit={handleSubmit} noValidate>
@@ -139,12 +123,6 @@ function Profile({ onUpdateUser, onSignOut }) {
       )}
       </form>
     </section>
-    <InfoTooltip
-    isOpen={isPopupOpen}
-    onClose={handleClosePopup}
-    message={popupMessage}
-    />
-  </>
   );
 }
 

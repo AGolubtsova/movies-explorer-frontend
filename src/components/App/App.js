@@ -24,6 +24,7 @@ function App() {
   const routeMain = useMatch("/");
   const routeMovies = useMatch("/movies");
   const routeSavedMovies = useMatch("/saved-movies");
+  const routeProfile = useMatch("/profile");
 
   // Стейты
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -268,7 +269,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className = "аpp">
-         <Header isLoggedIn={isLoggedIn} />
+        {(routeMain || routeMovies || routeSavedMovies || routeProfile) && <Header isLoggedIn={isLoggedIn} />}
          <Routes>
           <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<Main/>}/>
