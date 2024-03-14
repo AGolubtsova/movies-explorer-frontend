@@ -1,0 +1,25 @@
+.nav__burger-btn {
+  display: none;
+  background: none;
+  box-sizing: border-box;
+  background-image: url('../../../images/burgerMenu.svg');
+  width: 44px;
+  height: 44px;
+  border: none;
+  cursor: pointer;
+  transition: .5s ease;
+}
+  
+@media screen and (max-width: 768px) {
+  .nav__burger-btn {
+    display: block;
+    padding: 0;
+  }
+}
+  
+@media screen and (max-width: 420px) {
+  .nav__burger-btn {
+    width: 40px;
+    height: 43px;
+  }
+}
