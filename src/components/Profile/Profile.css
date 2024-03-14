@@ -189,5 +189,10 @@
   
   .profile__button {
     font-size: 12px;
+    margin-left: 86px;
+  }
+
+  .profile__button-signout {
+    margin-left: 72px;
   }
 }
