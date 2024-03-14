@@ -116,7 +116,7 @@ function Profile({ onUpdateUser, onSignOut }) {
       ) : (
         <>
           <span className={`profile__error`}>{errors.name || errors.email}</span>
-          <button className={`${!isEdited && (values.name !== currentUser.data.name && values.email !== currentUser.data.email) ? "profile__button_edit" : "profile__button_error"}`} type="submit" disabled={setIsEdited}>
+          <button className={`${!isEdited && (values.name !== currentUser.data.name && values.email !== currentUser.data.email) ? "profile__button_edit" : "profile__button_error"}`} type="submit" disabled={(setIsEdited || (values.name === currentUser.data.name && values.email === currentUser.data.email) ) && "disabled"}>
             Сохранить
           </button>
         </>
