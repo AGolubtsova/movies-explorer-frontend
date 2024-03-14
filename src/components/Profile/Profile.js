@@ -6,7 +6,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 function Profile({ onUpdateUser, onSignOut }) {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [isDisabled, setDisabled] = useState(true);
-  const [isEdited, setIsEdited] = useState(true);
+  const [isEdited, setIsEdited] = useState(false);
   const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -21,18 +21,18 @@ function Profile({ onUpdateUser, onSignOut }) {
     if (isChange) {
       if (values.name) {
         if (isFormValid && errors.name === '') {
-          setIsEdited(false)
-          } else {
-            setIsEdited(true)
-          }
+          setIsEdited(true);
+        } else {
+          setIsEdited(false);
         }
-        if (values.email) {
-          if (isFormValid && errors.email === '') {
-            setIsEdited(false)
-            } else {
-              setIsEdited(true)
-            }
-          }            
+      }
+      if (values.email) {
+        if (isFormValid && errors.email === '') {
+          setIsEdited(true);
+        } else {
+          setIsEdited(false);
+        }
+      }
     }
   }, [isChange, isFormValid, errors])
 
@@ -116,7 +116,9 @@ function Profile({ onUpdateUser, onSignOut }) {
       ) : (
         <>
           <span className={`profile__error`}>{errors.name || errors.email}</span>
-          <button className={`${!isEdited && (values.name !== currentUser.data.name && values.email !== currentUser.data.email) ? "profile__button_edit" : "profile__button_error"}`} type="submit" disabled={(setIsEdited || (values.name === currentUser.data.name && values.email === currentUser.data.email) ) && "disabled"}>
+          <button className={`${isEdited && ((values.name && values.name !== currentUser.data.name) || (values.email && values.email !== currentUser.data.email)) ? "profile__button_edit" : "profile__button_error"}`}
+                  type="submit"
+                  disabled={(!isEdited || ((!values.name || values.name === currentUser.data.name) && (!values.email || values.email === currentUser.data.email)))  && "disabled"}>
             Сохранить
           </button>
         </>

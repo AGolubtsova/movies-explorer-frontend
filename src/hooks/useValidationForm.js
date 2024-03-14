@@ -76,8 +76,6 @@ const useValidationForm = () => {
       } 
     }
     
-    //setIsFormValid(event.target.closest("form").checkValidity());
-
     if(errors.name || errors.email || errors.password) {
       setIsFormValid(false);
     } else {
