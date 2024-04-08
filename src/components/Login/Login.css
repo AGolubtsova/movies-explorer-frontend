@@ -1,0 +1,28 @@
+.login {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.saved-movies__devider {
+    min-height: 0px;
+    background-color: #202020;
+}
+
+@media (max-width: 769px) {
+  .login {
+    padding-top: 232px;
+    padding-bottom: 232px;
+  }
+}
+    
+@media (max-width: 420px) {
+  .login {
+    padding: 56px 30px 30px;
+  }
+
+  .login__devider {
+    min-height: 86px;
+  }
+}

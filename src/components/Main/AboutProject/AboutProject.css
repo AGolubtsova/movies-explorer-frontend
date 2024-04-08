@@ -1,0 +1,157 @@
+.project {
+  padding: 113px 70px;
+}
+  
+.project__title {
+  margin: 0;
+  margin-bottom: 70px;
+  padding: 0;
+  padding-bottom: 23px;
+  display: block;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  border-bottom: 1px solid #DADADA;
+}
+  
+.project__box {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 40px;
+}
+  
+.project__box-item {
+  max-width: 550px;
+  margin-bottom: 110px;
+}
+  
+.project__box-item h3 {
+  margin: 0;
+  padding: 0;
+  min-height: 48px;
+  max-width: 319px;
+  margin-bottom: 26px;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 24.2px;
+  letter-spacing: -0.18px;
+  text-overflow: none;
+  white-space: wrap;
+}
+  
+.project__box-item p {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+  
+.project__time {
+  display: grid;
+  grid-template-columns: 228px  1fr;
+  row-gap: 14px;
+}  
+.project__time-item {
+  padding: 9px;
+  font-size: 14px;
+  line-height: 16.94px;
+  text-align: center;
+}
+
+.project__time-item:first-of-type {
+  color: #000;
+  background-color: #3DDC84;
+}
+  
+.project__time-item:nth-of-type(2) {
+  background-color: #303030;
+}
+  
+.project__time-item:nth-of-type(3), .project__time-item:nth-of-type(4) {
+  padding: 0;
+  color: #8B8B8B;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 768px) {
+  .project {
+    padding: 90px 47px;
+  }
+  
+  .project__box-item {
+    max-width: 319px;
+    margin-bottom: 94px;
+  }
+
+  .project__time {
+    display: grid;
+    grid-template-columns: 140px  1fr;
+    row-gap: 14px;
+  } 
+
+  .project__time-item:nth-of-type(3), .project__time-item:nth-of-type(4) {
+    padding: 0;
+    color: #A0A0A0;
+  }
+
+  .project__box {
+    column-gap: 33px;
+  }
+
+  .project__box-item h3 {
+    margin-bottom: 20px;
+  }
+
+  .project__box-item p {
+    max-width: 319px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+  
+@media screen and (max-width: 470px) {
+  .project {
+    padding: 70px 18px;
+  }
+  
+  .project__title {
+    margin-bottom: 60px;
+    padding-bottom: 28px;
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+
+  .project__box-item h3 {
+    letter-spacing: -1.40px;
+    margin-bottom: 13px;
+  }
+
+  .project__box {
+    flex-direction: column;
+    gap: 56px;
+    margin-bottom: 60px;
+  }
+  
+  .project__box-item {
+    margin-bottom: 0;
+  }
+  
+  .project__box-item p {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .project__time {
+    display: grid;
+    grid-template-columns: 100px  1fr;
+    row-gap: 10px;
+  } 
+  
+  .project__time-item {
+    font-size: 11px;
+    line-height: 13.31px;
+    text-align: center;
+  }
+}

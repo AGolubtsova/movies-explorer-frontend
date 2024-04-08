@@ -1,0 +1,133 @@
+.card {
+  padding: 16px 0;
+  background-color: #222;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  align-items: center;
+  gap: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__container {
+  width:100%;
+  padding-left: 18px;
+  padding-right: 18px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__container h3 {
+  margin: 0;
+  margin-right: 14px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: -0.01px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+  
+.card__duration {
+    padding-right: 2px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #8B8B8B;
+    white-space: nowrap;
+}
+  
+.card__image {
+  /*max-width: 364px;
+  min-height: 203px;*/
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+  height: 200px;
+  box-sizing: border-box;
+}
+  
+.card__button {
+  padding: 9px 15px;
+  min-width: 100px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 11px;
+  color: #FFFFFF;
+  border-radius: 30px;
+  background-color: #313131;
+  border: none;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.card__button:hover {
+  opacity: .7;
+ }
+
+.card__button-saved {
+  background-image: url('../../images/iconSaved.svg');
+  width: 100px;
+  height: 29px;
+  border:0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: .5s ease;
+  cursor: pointer
+}
+
+.card__button-saved:hover {
+  opacity: .7;
+}
+
+.card__delete-button {
+  background-image: url('../../images/deleteIcon.svg');
+  width: 100px;
+  height: 29px;
+  border:0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: .5s ease;
+  cursor: pointer
+  }
+
+ .card__delete-button:hover {
+  opacity: .7;
+}
+  
+@media screen and (max-width: 768px) {
+  .card__image {
+    max-width: 342px;
+    height: 190px;
+  }
+}
+  
+@media screen and (max-width: 420px) {
+  .card {
+    padding: 14px 0;
+    gap: 14px;
+  }
+  .card__container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  
+  .card__container h3 {
+    font-size: 12px;
+  }
+    
+  .card__duration {
+    font-size: 10px;
+  }
+  
+  .card__image {
+    max-width: 300px;
+    height: 168px;
+  } 
+}

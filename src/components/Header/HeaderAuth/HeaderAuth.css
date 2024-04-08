@@ -1,0 +1,70 @@
+.header-auth {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
+.header-auth__registration-button {
+  margin-right: 30px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  transition: .5s ease;
+}
+
+.header-auth__registration-button:hover {
+  opacity: .7;
+}
+
+.header-auth__login-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 32px;
+  min-width: 76px;
+  padding: 0;
+  margin: 21px 0 21px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+  background-color: #3DDC84;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  transition: .5s ease;
+}
+
+.header-auth__login-button:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 768px) {
+  .header-auth {
+    min-width: 183px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header-auth {
+    min-width: 0;
+  }
+
+  .header-auth__login-button {
+    min-height: 26px;
+    min-width: 54px;
+    font-size: 10px;
+  }
+
+.header-auth__registration-button {
+    margin-right: 14px;
+    padding: 0 0 2px 0;
+    font-size: 10px;
+}
+}
